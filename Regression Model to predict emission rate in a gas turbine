@@ -5,6 +5,16 @@ In this work, we present analytical results obtained by the Predictive Emission 
 
 The reasons for the choice of the dataset are three-fold. Firstly, it is suspected that some parameters might be collinear. For instance, Turbine Inlet temperature and Outlet temperature can be explained by already developed thermodynamic models. Detecting collinearity among variables helps in saving resources for the future design of experiments, builds a simpler model, and provides a good opportunity to apply variable selection techniques.  Secondly, the data has over 36,000 rows, which allows for a good test train split and then optimizing it using Cross-Validation. Thirdly, having two different Response variables imply that two different models need to be fit. The two models can then be compared on the basis of R-squared and visual analytics to draw insights on which response the data explains well.
 
+InTo begin with, we compiled a  publicly available exhaust gas emission dataset, performed exploratory analysis on it. We first gave a statistical summary and correlation analysis of the variables, and then partitioned the model into train, validate and test in the  ratio of 6:2:2. We defined the train(60%)  partition with generalization procedure to avoid overfitting and regularized with Ridge, Lasso and Elastic technique to check for multicollinearity and variable selection. and determined the MSPE of the model with the validate(20%) part  under both the regressors.
+
+Further we combined the train and validate component (80%) and ran the  similar generalization and regularization analysis on it and further tested the model with the remaining 20% to determine the MSPE value for both the regressors.
+
+In addition to that, we also performed the goodness of fit test with deviance and Pearson residual under the generalized linear model and determined the prediction error of the model under both the regressors.
+
+To allow comparability of the data, we compiled the ANOVA test with our initial model and the (80-20) partitioned model. Our results show that feature selection based on linear projection is identical to the initial chosen model as no variables were dismissed. The partitioned model  markedly improves prediction performance on the test set. 
+
+ This is partly because of the data distribution (CO emission concentration is accumulated near zero, and partly because the features used to characterize the process have stronger correlations with CO. Hence to conclude, on performing this regression analysis conjectures that  all the variables are significant  and the  data has good dimensionality for variable selection and Cross-Validation and fits two different models utilizing a good application of classroom learning.
+ 
 To conclude, the data has good dimensionality for variable selection and Cross-Validation and fits two different models utilizing a good application of classroom learning.
  
 
